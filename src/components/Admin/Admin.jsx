@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Admin.css";
 import logo from "../../imgs/logo.png";
 import avatar from "../../imgs/card-advance-sale.png";
@@ -8,6 +8,7 @@ import { GiClothes } from "react-icons/gi";
 import { IoPeopleSharp } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
 import { AiFillDollarCircle } from "react-icons/ai";
+import { IoSearchSharp } from "react-icons/io5";
 import { Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -20,9 +21,11 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import {Chart, ArcElement} from 'chart.js'
+import { Chart, ArcElement, BarElement } from "chart.js";
+import { Bar } from "react-chartjs-2";
 
 Chart.register(ArcElement);
+Chart.register(BarElement);
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -67,32 +70,115 @@ export const data = {
 
 // REVENUE DOUGHNUT SEMI CIRCLE
 
-const data2 = {
-  labels: ['Revenue'],
+const semiCircleData = {
+  labels: ["Revenue"],
   datasets: [
-     {
-       data: [50,30], // change this value to the percentage of revenue
-       backgroundColor: ['rgba(75, 192, 192, 0.6)','rgba(75, 192, 192, 0.6)'],
-       hoverBackgroundColor: ['rgba(75, 192, 192, 1)','rgba(75, 192, 192, 1)'],
-       circumference:180,
-       rotation: 270,
-     },
+    {
+      data: [50, 30], // change this value to the percentage of revenue
+      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(75, 192, 192, 0.6)"],
+      hoverBackgroundColor: ["rgba(75, 192, 192, 1)", "rgba(75, 192, 192, 1)"],
+      circumference: 180,
+      rotation: 270,
+    },
   ],
- };
- 
- const options2 = {
-  cutoutPercentage: 95, // this option will create a semicircle
-  rotation: -1.6, // this option will rotate the chart by 1.6 degrees (or 90% of a degree) to align it with the center of the semicircle
+};
+
+const semiCircleOptions = {
+  cutout: "80%",
   plugins: {
-     legend: {
-       display: false,
-     },
-     title: {
-       display: true,
-       text: 'Revenue Percentage',
-     },
+    legend: {
+      display: false,
+    },
+    title: {
+      display: true,
+      text: "Revenue Percentage",
+    },
   },
- };
+};
+
+// REVENUE DOUGHNUT SEMI CIRCLE
+
+const dougnhutFullData = {
+  labels: ["Revenue"],
+  datasets: [
+    {
+      data: [50, 30], // change this value to the percentage of revenue
+      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(75, 192, 192, 0.6)"],
+      hoverBackgroundColor: ["rgba(75, 192, 192, 1)", "rgba(75, 192, 192, 1)"],
+    },
+  ],
+};
+
+const dougnhutFullDOptions = {
+  cutout: "60%",
+  plugins: {
+    legend: {
+      display: false,
+    },
+    title: {
+      display: true,
+      text: "Revenue Percentage",
+    },
+  },
+};
+
+//  STACK CHART DATA
+const stackedData = {
+  labels: ["January", "February", "March", "April", "May"],
+  datasets: [
+    {
+      label: "Revenue",
+      data: [2000, 1500, 2500, 1800, 2200],
+      backgroundColor: "rgb(0,255,0)", // Green color for revenue
+      borderRadius: 20,
+    },
+    {
+      label: "Expenses",
+      data: [-1000, -800, -1200, -900, -1100],
+      backgroundColor: "rgb(255,0,0,0.7)", // Red color for expenses
+      borderRadius: 20,
+    },
+  ],
+};
+
+const stackedOptions = {
+  scales: {
+    x: {
+      stacked: true,
+
+      grid: {
+        display: false,
+      },
+
+      border: {
+        display: false,
+      },
+    },
+
+    y: {
+      stacked: true,
+      grid: {
+        display: false,
+      },
+      border: {
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
+
+      labels: {
+        pointStyle: "cirlce",
+        usePointStyle: true,
+      },
+    },
+  },
+  barPercentage: 0.3, // Adjust the width of the bars
+  categoryPercentage: 0.3, // Adjust the width of the bars
+  borderSkipped: "round", // Use rounded corners
+};
 
 const tabs = [
   { logo: <FaChartBar className="tab_logo" />, name: "Statistics" },
@@ -111,7 +197,32 @@ const Tab = ({ logo, name }) => {
 };
 
 const TopBar = () => {
-  return <div className="topbar"></div>;
+  // SEARCH BAR
+  const [query, setQuery] = useState("");
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    // Add your search logic here
+    console.log("Searching for:", query);
+  };
+  return (
+    <div className="topbar">
+      <div className="ds search">
+        <button className="ds" onClick={handleSearch}>
+          <IoSearchSharp className="search_icon" />
+        </button>
+        <input className="ds"
+          type="text"
+          placeholder="Search"
+          value={query}
+          onChange={handleChange}
+        />
+      </div>
+    </div>
+  );
 };
 
 const Admin = () => {
@@ -191,13 +302,15 @@ const Admin = () => {
             <div>
               <p>82.5k</p>
               <p>Expenses</p>
-              <p>
-                <Doughnut
-                  className="canvas_img doughnut"
-                  options={options2}
-                  data={data2}
-                />
-              </p>
+              <div className="semicircle_container">
+                <p>
+                  <Doughnut
+                    className="canvas_img doughnut"
+                    options={semiCircleOptions}
+                    data={semiCircleData}
+                  />
+                </p>
+              </div>
             </div>
           </div>
 
@@ -212,13 +325,29 @@ const Admin = () => {
           </div>
 
           <div className="item5 subcontainer">
-            <Line className="canvas_img" options={options} data={data} />
+            <Bar
+              className="stackedChart"
+              data={stackedData}
+              options={stackedOptions}
+            />
           </div>
 
-          <div className="item6 subcontainer">6</div>
+          <div className="item6 subcontainer">
+            <div className="item6_text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              amet omnis eum quos saepe veniam. Cum, a. Esse cupiditate, eos
+              illo amet officia labore est eaque corporis laborum iusto iure!
+            </div>
+            <div>
+              <Doughnut
+                className="canvas_img doughnut_full"
+                options={dougnhutFullDOptions}
+                data={dougnhutFullData}
+              />
+            </div>
+          </div>
         </div>
       </div>
-
     </>
   );
 };
