@@ -1,0 +1,140 @@
+div,
+p,
+span,
+button,
+h1,
+h2,
+h3 {
+  width: fit-content;
+  height: fit-content;
+}
+
+.cart_bg {
+  height: 100vh;
+  width: 100vw;
+  /* border: 1px solid red; */
+}
+.cart-container {
+  width: auto;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
+  height: fit-content;
+  /* border: 1px solid red; */
+}
+
+.cart-header {
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.item-header {
+  width: 65%;
+  padding: 10px 5px 10px 25px;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  gap: 3rem;
+  align-items: end;
+  justify-content: end;
+  /* border: 1px solid red; */
+}
+
+.item-header > p:first-child {
+  margin-right: auto;
+}
+.item-header > p:last-child {
+  margin-right: 3.8rem;
+}
+
+/* ITME DETAILS */
+.cart-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* border: 1px solid red; */
+}
+
+.cart-item {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  padding: 25px 5px 25px 25px;
+  /* border: 1px solid red; */
+}
+
+.item-image {
+  aspect-ratio: 1200 / 1800;
+  min-height: 100px;
+  min-width: 80px;
+  margin-right: 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.item-info {
+  /* border: 1px solid red; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  padding-top: 0.4rem;
+  margin-bottom: auto;
+}
+
+.item-category {
+  color: #717171;
+}
+
+.item-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: auto;
+  margin-right: 1.7rem;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  border: 1px solid #ddd;
+  padding: 0.5rem 0.4rem 0.5rem 0.4rem;
+}
+
+.counterbtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.minus-btn {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.quantity {
+  margin: 0 1.7rem;
+}
+
+.total-price {
+  margin-left: 1.7rem;
+  font-size: 1.1rem;
+}
+
+.remove-button {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 1.7rem;
+}
+
+.remove-button:hover {
+  color: #d65345;
+}
