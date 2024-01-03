@@ -62,8 +62,8 @@ export const data = {
       data: [
         2200, 2000, 2300, 2350, 2500, 2300, 2400, 2500, 2550, 2600, 2550, 2700,
       ],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      borderColor: "rgb(44,215,235)",
+      backgroundColor: "rgb(44,215,235,0.5)",
     },
   ],
 };
@@ -74,9 +74,9 @@ const semiCircleData = {
   labels: ["Revenue"],
   datasets: [
     {
-      data: [50, 30], // change this value to the percentage of revenue
-      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(75, 192, 192, 0.6)"],
-      hoverBackgroundColor: ["rgba(75, 192, 192, 1)", "rgba(75, 192, 192, 1)"],
+      data: [80, 30], // change this value to the percentage of revenue
+      backgroundColor: ["rgb(255,173,95)", "rgb(255,173,95,0.3)"],
+      hoverBackgroundColor: ["rgb(255,173,95,0.8)", "rgb(255,173,95,0.3)"],
       circumference: 180,
       rotation: 270,
     },
@@ -103,8 +103,18 @@ const dougnhutFullData = {
   datasets: [
     {
       data: [50, 30], // change this value to the percentage of revenue
-      backgroundColor: ["rgba(75, 192, 192, 0.6)", "rgba(75, 192, 192, 0.6)"],
-      hoverBackgroundColor: ["rgba(75, 192, 192, 1)", "rgba(75, 192, 192, 1)"],
+      backgroundColor: [
+        "rgb(40,199,111)",
+        "rgb(147,227,183)",
+        "rgb(147,227,183)",
+        "rgb(220,246,232)",
+      ],
+      hoverBackgroundColor: [
+        "rgb(40,199,111)",
+        "rgb(147,227,183)",
+        "rgb(147,227,183)",
+        "rgb(220,246,232)",
+      ],
     },
   ],
 };
@@ -124,18 +134,36 @@ const dougnhutFullDOptions = {
 
 //  STACK CHART DATA
 const stackedData = {
-  labels: ["January", "February", "March", "April", "May"],
+  labels: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
   datasets: [
     {
       label: "Revenue",
-      data: [2000, 1500, 2500, 1800, 2200],
-      backgroundColor: "rgb(0,255,0)", // Green color for revenue
+      data: [
+        2000, 1500, 2500, 1800, 2200, 2000, 1500, 2500, 1800, 2200, 1800, 2200,
+      ],
+      backgroundColor: "rgb(136,126,242)",
       borderRadius: 20,
     },
     {
       label: "Expenses",
-      data: [-1000, -800, -1200, -900, -1100],
-      backgroundColor: "rgb(255,0,0,0.7)", // Red color for expenses
+      data: [
+        -1000, -800, -1200, -900, -1100, -1000, -800, -1200, -900, -1100, -800,
+        -1200,
+      ],
+      backgroundColor: "rgb(255,173,95)",
       borderRadius: 20,
     },
   ],
@@ -175,7 +203,7 @@ const stackedOptions = {
       },
     },
   },
-  barPercentage: 0.3, // Adjust the width of the bars
+  barPercentage: 0.4, // Adjust the width of the bars
   categoryPercentage: 0.3, // Adjust the width of the bars
   borderSkipped: "round", // Use rounded corners
 };
@@ -213,6 +241,24 @@ const products = [
   {
     id: 2,
     name: "Product 2",
+    price: 30,
+    stock: 40,
+    sold: 20,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    price: 20,
+    stock: 50,
+    sold: 10,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 4,
+    name: "Product 4",
     price: 30,
     stock: 40,
     sold: 20,
@@ -269,6 +315,44 @@ const customers = [
     registrationDate: "2024-01-02",
     lastLoginDate: "2024-01-14",
     status: "Inactive",
+  },
+];
+
+const popularProducts = [
+  {
+    id: 1,
+    name: "Product A",
+    price: 29.99,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 2,
+    name: "Product B",
+    price: 39.99,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 3,
+    name: "Product C",
+    price: 49.99,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 4,
+    name: "Product A",
+    price: 29.99,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 5,
+    name: "Product B",
+    price: 39.99,
+    imageUrl:
+      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
   },
 ];
 
@@ -422,116 +506,133 @@ const Admin = () => {
               />
             </div>
           </div>
-          {/* <div className="container2 ds"> */}
-            <div className="item7 subcontainer2">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Items in Stock</th>
-                    <th>Items Sold</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product.id}>
-                      <td>
-                        <img
-                          src={product.imageUrl}
-                          alt={product.name}
-                          style={{ width: "50px", height: "50px" }}
-                        />
-                      </td>
-                      <td>{product.name}</td>
-                      <td>${product.price}</td>
-                      <td>{product.stock}</td>
-                      <td>{product.sold}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
 
-            <div className="item8 subcontainer2">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Order ID</th>
-                    <th>Items</th>
-                    <th>Customer Name</th>
-                    <th className="hide_col">Order Date</th>
-                    <th>Shipping Address</th>
-                    <th>Total Amount</th>
-                    <th>Status</th>
-                    <th className="hide_col">Payment Method</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {orders.map((order) => (
-                    <tr key={order.orderId}>
-                      <td>{order.orderId}</td>
-                      <td>{order.items.join(", ")}</td>
-                      <td>{order.customerName}</td>
-                      <td className="hide_col">{order.orderDate}</td>
-                      <td>{order.shippingAddress}</td>
-                      <td>${order.totalAmount.toFixed(2)}</td>
-                      <td>{order.status}</td>
-                      <td className="hide_col">{order.paymentMethod}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="product-table item10 subcontainer">
+            {popularProducts.map((product) => (
+              <div key={product.id} className="product-item">
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className="product-image"
+                />
+                <p className="product-info ds">
+                  <span className="product-name ds">{`${product.name} #${product.id}`}</span>
+                </p>
+                <p className="product-price">
+                  ${product.price.toFixed(2)}
+                </p>
+              </div>
+            ))}
+          </div>
 
-            <div className="item9 subcontainer2">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Customer ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th className="hide_col">Address</th>
-                    <th className="hide_col">Total Orders</th>
-                    <th className="hide_col">Total Spend</th>
-                    <th className="hide_col">Registration Date</th>
-                    <th className="hide_col">Last Login Date</th>
-                    <th className="hide_col">Status</th>
-                    <th>Actions</th>
+          <div className="item7 subcontainer2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Items in Stock</th>
+                  <th>Items Sold</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((product) => (
+                  <tr key={product.id}>
+                    <td>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                    </td>
+                    <td>{product.name}</td>
+                    <td>${product.price}</td>
+                    <td>{product.stock}</td>
+                    <td>{product.sold}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {customers.map((customer) => (
-                    <tr key={customer.customerId}>
-                      <td>{customer.customerId}</td>
-                      <td>{customer.name}</td>
-                      <td>{customer.email}</td>
-                      <td>{customer.phoneNumber}</td>
-                      <td className="hide_col">{customer.address}</td>
-                      <td className="hide_col">{customer.totalOrders}</td>
-                      <td className="hide_col">
-                        ${customer.totalSpend.toFixed(2)}
-                      </td>
-                      <td className="hide_col">{customer.registrationDate}</td>
-                      <td className="hide_col">{customer.lastLoginDate}</td>
-                      <td className="hide_col">{customer.status}</td>
-                      <td>
-                        {/* Add action buttons/links here */}
-                        <button
-                          onClick={() => handleViewDetails(customer.customerId)}
-                        >
-                          View Details
-                        </button>
-                        {/* Add other action buttons/links as needed */}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          {/* </div> */}
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="item8 subcontainer2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th className="hide_col2">Items</th>
+                  <th>Customer Name</th>
+                  <th className="hide_col">Order Date</th>
+                  <th className="hide_col2">Shipping Address</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+                  <th className="hide_col">Payment Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map((order) => (
+                  <tr key={order.orderId}>
+                    <td>{order.orderId}</td>
+                    <td className="hide_col2">{order.items.join(", ")}</td>
+                    <td>{order.customerName}</td>
+                    <td className="hide_col">{order.orderDate}</td>
+                    <td className="hide_col2">{order.shippingAddress}</td>
+                    <td>${order.totalAmount.toFixed(2)}</td>
+                    <td>{order.status}</td>
+                    <td className="hide_col">{order.paymentMethod}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="item9 subcontainer2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Name</th>
+                  <th className="hide_col2">Email</th>
+                  <th className="hide_col2">Phone Number</th>
+                  <th className="hide_col">Address</th>
+                  <th className="hide_col">Total Orders</th>
+                  <th className="hide_col">Total Spend</th>
+                  <th className="hide_col">Registration Date</th>
+                  <th className="hide_col">Last Login Date</th>
+                  <th className="hide_col">Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {customers.map((customer) => (
+                  <tr key={customer.customerId}>
+                    <td>{customer.customerId}</td>
+                    <td>{customer.name}</td>
+                    <td className="hide_col2">{customer.email}</td>
+                    <td className="hide_col2">{customer.phoneNumber}</td>
+                    <td className="hide_col">{customer.address}</td>
+                    <td className="hide_col">{customer.totalOrders}</td>
+                    <td className="hide_col">
+                      ${customer.totalSpend.toFixed(2)}
+                    </td>
+                    <td className="hide_col">{customer.registrationDate}</td>
+                    <td className="hide_col">{customer.lastLoginDate}</td>
+                    <td className="hide_col">{customer.status}</td>
+                    <td>
+                      {/* Add action buttons/links here */}
+                      <button className="actionbtn"
+                        onClick={() => handleViewDetails(customer.customerId)}
+                      >
+                        View Details
+                      </button>
+                      {/* Add other action buttons/links as needed */}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </>
