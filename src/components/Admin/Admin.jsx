@@ -10,6 +10,9 @@ import { IoCart } from "react-icons/io5";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { IoSearchSharp } from "react-icons/io5";
 import { Doughnut } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import { Chart, ArcElement, BarElement } from "chart.js";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,9 +23,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
-import { Chart, ArcElement, BarElement } from "chart.js";
-import { Bar } from "react-chartjs-2";
 
 Chart.register(ArcElement);
 Chart.register(BarElement);
