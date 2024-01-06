@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cart.css";
 import Item from "./Item";
 
 const Cart = () => {
+  const [selectedCity, setSelectedCity] = useState("");
+  const [shippingCost, setShippingCost] = useState(0);
+
   const cartItems = [
     {
       id: 1,
@@ -25,20 +28,71 @@ const Cart = () => {
     // Add more cart items as needed
   ];
 
+  const calculateSubtotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+
+  const handleCityChange = (event) => {
+    setSelectedCity(event.target.value);
+    // Add logic to set shipping cost based on the selected city
+    // You can fetch shipping rates or calculate them based on your business logic
+  };
+
+  const calculateTotal = () => {
+    const subtotal = calculateSubtotal();
+    return subtotal + shippingCost;
+  };
+
+  const handleProceedToCheckout = () => {
+    // Add logic to navigate to the checkout page
+  };
+
+  const handleContinueShopping = () => {
+    // Add logic to navigate to the shopping page
+  };
+
   return (
     <div className="cart_bg">
+      <h2 className="cart-header">YOUR CART</h2>
       <div className="cart-container">
-        <h2 className="cart-header">YOUR CART</h2>
         <div className="cart-items">
-            <div className="item-header">
-                <p>PRODUCT</p>
-                <p>PRICE</p>
-                <p>QUANTITY</p>
-                <p>TOTAL</p>
-            </div>
+          <div className="item-header">
+            <p>PRODUCT</p>
+            <p>PRICE</p>
+            <p>QUANTITY</p>
+            <p>TOTAL</p>
+          </div>
           {cartItems.map((item) => (
             <Item key={item.id} item={item} />
           ))}
+        </div>
+        <div className="cart-summary">
+          <h2>Order Summary</h2>
+          <div>
+            <div className="subtotal">
+              <strong>Subtotal</strong>
+              <p> {` $${calculateSubtotal().toFixed(2)}`}</p>
+            </div>
+            <div className="cart-city-dropdown">
+              <strong>Get Shipping Estimate:</strong>
+              <select value={selectedCity} onChange={handleCityChange}>
+                <option value="">Select a city</option>
+                {/* Add options for different cities */}
+                <option value="city1">City 1</option>
+                <option value="city2">City 2</option>
+                {/* Add more options as needed */}
+              </select>
+            </div>
+            <div className="grand-total">
+              <strong>Total:</strong>
+              <p>{` $${calculateTotal().toFixed(2)}`}</p>
+            </div>
+          </div>
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+          <button onClick={handleContinueShopping}>Continue Shopping</button>
         </div>
       </div>
     </div>
