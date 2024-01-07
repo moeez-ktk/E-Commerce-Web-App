@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Cart.css";
 import Item from "./Item";
+// import Navbar from "../navbar/Navbar";
+// import Footer from "../footer/Footer";
 
 const Cart = () => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -56,6 +58,7 @@ const Cart = () => {
 
   return (
     <div className="cart_bg">
+      {/* <Navbar/> */}
       <h2 className="cart-header">YOUR CART</h2>
       <div className="cart-container">
         <div className="cart-items">
@@ -95,6 +98,7 @@ const Cart = () => {
           <button onClick={handleContinueShopping}>Continue Shopping</button>
         </div>
       </div>
+      {/* <Footer/> */}
     </div>
   );
 };
