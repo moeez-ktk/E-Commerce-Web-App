@@ -8,19 +8,19 @@
   height: 100%;
 }
 
-p {
+/* p {
   width: fit-content;
   height: fit-content;
-}
+} */
 
 .ds {
   width: fit-content;
   height: fit-content;
 }
 
-button {
+/* button {
   width: max-content;
-}
+} */
 
 /* SEARCH BAR */
 
@@ -425,12 +425,12 @@ th {
   background-color: beige;
 }
 
-img {
+/* img {
   max-width: 50px;
   max-height: 50px;
   display: block;
   margin: 0 auto;
-}
+} */
 
 td {
   border-bottom: 1px solid #ddd; /* Add bottom border to separate rows */
