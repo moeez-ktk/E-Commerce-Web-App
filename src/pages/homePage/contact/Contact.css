@@ -1,0 +1,128 @@
+.send-btn{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: rgb(214, 43, 114);
+    color: #fff;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 2;
+    font-weight: bold;
+    width:20rem;
+    
+}
+.send-btn:hover{
+    background: palevioletred;
+    color: #fff;
+}
+
+.contact{
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.contact .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    padding-left: 3rem;
+    padding-right: 10rem;
+
+}
+
+.contact .row form{
+    flex:1 1 20rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1) ;
+    border: 1rem solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: .5rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 15rem; */
+}
+.contact .row .image {
+   flex: 1 1 40rem;
+   margin-left: 5rem;
+}
+
+.contact .row .image img{
+    width:80%;
+}
+
+.contact .row form .box{
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    text-transform: none;
+    border: .1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+    margin: 2rem 0;
+}
+
+.contact .row form .box:focus{
+    border-color: palevioletred;
+}
+
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+@media only screen and (max-width:1024px){
+    .contact .row .image {
+        flex: 1 1 40rem;
+        margin-left: 15rem;
+     }
+
+     .contact .row form{
+        flex:1 1 20rem;
+        padding: 2rem 2.5rem;
+        box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1) ;
+        border: 1rem solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border-radius: .5rem;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10rem;
+    }
+}
+
+@media only screen and (max-width:400px){
+    .contact .row .image {
+        flex: 1 1 40rem;
+        margin-left: 8rem;
+     }
+
+     .contact .row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap:1.5rem;
+        padding-left: 3.5rem;
+        padding-right: 5rem;
+    
+    }
+
+     .contact .row form{
+        flex:1 1 20rem;
+        padding: 2rem 2.5rem;
+        box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1) ;
+        border: 1rem solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border-radius: .5rem;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: 3rem;
+    }
+}

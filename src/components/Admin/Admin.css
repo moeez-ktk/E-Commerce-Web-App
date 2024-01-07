@@ -412,10 +412,6 @@ th {
   aspect-ratio: 1200 / 1800;
   object-position: center;
   object-fit: cover;
-  max-width: 50px;
-  max-height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
 td {
