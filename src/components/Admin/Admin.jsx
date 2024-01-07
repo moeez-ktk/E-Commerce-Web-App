@@ -13,6 +13,7 @@ import { Doughnut } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 import { Chart, ArcElement, BarElement } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -44,10 +45,17 @@ export const options = {
     legend: {
       display: false,
     },
+    title: {
+      display: false,
+      text: "Past 6 Months",
+    },
   },
   scales: {
     y: {
-      display: false, // Set display to false to hide the y-axis range text
+      display: false,
+    },
+    x: {
+      display: false,
     },
   },
 };
@@ -58,7 +66,6 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
       data: [
         2200, 2000, 2300, 2350, 2500, 2300, 2400, 2500, 2550, 2600, 2550, 2700,
       ],
@@ -387,6 +394,15 @@ const TopBar = () => {
 };
 
 const Admin = () => {
+  const [file, setFile] = useState();
+  const upload = () => {
+    const formData = new FormData();
+    formData.append("file", file);
+    axios
+      .post("http://localhost:3001/upload", formData)
+      .then((res) => {})
+      .catch((er) => console.log(er));
+  };
   return (
     <>
       <div className="bgcol">
@@ -480,7 +496,11 @@ const Admin = () => {
               <p>Profit</p>
               <p>Last Month</p>
               <p>
-                <Line className="canvas_img" options={options} data={data} />
+                <Line
+                  className="canvas_img admin-line-chart"
+                  options={options}
+                  data={data}
+                />
               </p>
             </div>
           </div>
@@ -518,15 +538,13 @@ const Admin = () => {
                 <p className="product-info ds">
                   <span className="product-name ds">{`${product.name} #${product.id}`}</span>
                 </p>
-                <p className="product-price">
-                  ${product.price.toFixed(2)}
-                </p>
+                <p className="product-price">${product.price.toFixed(2)}</p>
               </div>
             ))}
           </div>
 
           <div className="item7 subcontainer2">
-            <table>
+            <table className="admin-table">
               <thead>
                 <tr>
                   <th>Image</th>
@@ -543,7 +561,7 @@ const Admin = () => {
                       <img
                         src={product.imageUrl}
                         alt={product.name}
-                        style={{ width: "50px", height: "50px" }}
+                        className="product-image"
                       />
                     </td>
                     <td>{product.name}</td>
@@ -557,7 +575,7 @@ const Admin = () => {
           </div>
 
           <div className="item8 subcontainer2">
-            <table>
+            <table className="admin-table">
               <thead>
                 <tr>
                   <th>Order ID</th>
@@ -588,7 +606,7 @@ const Admin = () => {
           </div>
 
           <div className="item9 subcontainer2">
-            <table>
+            <table className="admin-table">
               <thead>
                 <tr>
                   <th>Customer ID</th>
@@ -621,7 +639,8 @@ const Admin = () => {
                     <td className="hide_col">{customer.status}</td>
                     <td>
                       {/* Add action buttons/links here */}
-                      <button className="actionbtn"
+                      <button
+                        className="actionbtn"
                         onClick={() => handleViewDetails(customer.customerId)}
                       >
                         View Details
@@ -633,6 +652,53 @@ const Admin = () => {
               </tbody>
             </table>
           </div>
+
+          <div className="item11 product-form-container">
+            <form className="product-form">
+              <div className="form-group">
+                <label htmlFor="productName">Product Name:</label>
+                <input type="text" id="productName" className="form-control" />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="productDescription">Product Description:</label>
+                <textarea
+                  id="productDescription"
+                  className="form-control"
+                ></textarea>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="category">Category:</label>
+                <select id="category" className="form-control">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="kids">Kids</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="price">Price:</label>
+                <input type="number" id="price" className="form-control" />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="image">Image:</label>
+                <input
+                  type="file"
+                  id="image"
+                  className="form-control"
+                  accept="image/*"
+                  onChange={(e) => setFile(e.target.files[0])}
+                />
+              </div>
+
+              <button onClick={upload} type="submit" className="submit-button">
+                Add New Product
+              </button>
+            </form>
+          </div>
+          <div className="empty-space"></div>
         </div>
       </div>
     </>
