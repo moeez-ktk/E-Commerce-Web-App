@@ -8,13 +8,15 @@ import Home from './pages/homePage/Home'
 import Checkout from './pages/checkoutPage/Checkout'
 
 function App() {
+
+  
   return (
     <div className="App">
     <Navbar/>
       <Routes>
         {/* <Route exact path='/' element={<Admin />} /> */}
-        {/* <Route exact path='/' element={<Home/>}/> */}
-        <Route exact path='/' element={<Checkout />} />
+        <Route exact path='/' element={<Home/>}/>
+        {/* <Route exact path='/' element={<Checkout />} /> */}
         <Route exact path='/Login' element={<Login />} />
       </Routes>
     </div>
