@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import Admin from "./components/Admin/Admin";
 import Cart from "./components/Cart/Cart";
 import Login from "./components/Login/Login";
-import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/homePage/Home";
 import Checkout from "./pages/checkoutPage/Checkout";
 
