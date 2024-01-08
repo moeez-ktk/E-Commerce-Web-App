@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 
-const Item = ({ item }) => {
+const Item = ({ item, onRemoveItem, onUpdateQuantity }) => {
   const [quantity, setQuantity] = useState(item.quantity);
 
   const handleIncreaseQuantity = () => {
     setQuantity(quantity + 1);
+    if (onUpdateQuantity) {
+      onUpdateQuantity(item.id, quantity + 1);
+    }
   };
 
   const handleDecreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      if (onUpdateQuantity) {
+        onUpdateQuantity(item.id, quantity - 1);
+      }
     }
   };
 
   const handleRemoveItem = () => {
-    // Add logic to remove the item from the cart
+    // Call the onRemoveItem callback with the item ID
+    if (onRemoveItem) {
+      onRemoveItem(item.id);
+    }
   };
 
   return (

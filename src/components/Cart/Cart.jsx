@@ -7,8 +7,8 @@ import Footer from "../Footer/Footer";
 const Cart = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [shippingCost, setShippingCost] = useState(0);
-
-  const cartItems = [
+  const [subtotal, setSubtotal] = useState(0);
+  const [cartItems, setCartItems] = useState([
     {
       id: 1,
       name: "Product A",
@@ -27,8 +27,7 @@ const Cart = () => {
       image:
         "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
     },
-    // Add more cart items as needed
-  ];
+  ]);
 
   const calculateSubtotal = () => {
     return cartItems.reduce(
@@ -56,9 +55,24 @@ const Cart = () => {
     // Add logic to navigate to the shopping page
   };
 
+  const handleRemoveItem = (itemId) => {
+    // Remove the item with itemId from the cartItems array
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    // Update the cartItems state with the new array without the removed item
+    setCartItems(updatedCartItems);
+  };
+
+  const handleUpdateQuantity = (itemId, newQuantity) => {
+    const updatedCartItems = cartItems.map((item) =>
+      item.id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+    setCartItems(updatedCartItems);
+    setSubtotal(calculateSubtotal());
+  };
+
   return (
     <div className="cart_bg">
-      <Navbar/>
+      <Navbar />
       <h2 className="cart-header">YOUR CART</h2>
       <div className="cart-container">
         <div className="cart-items">
@@ -69,7 +83,7 @@ const Cart = () => {
             <p>TOTAL</p>
           </div>
           {cartItems.map((item) => (
-            <Item key={item.id} item={item} />
+            <Item key={item.id} item={item} onRemoveItem={handleRemoveItem} onUpdateQuantity={handleUpdateQuantity}/>
           ))}
         </div>
         <div className="cart-summary">
@@ -98,7 +112,7 @@ const Cart = () => {
           <button onClick={handleContinueShopping}>Continue Shopping</button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
