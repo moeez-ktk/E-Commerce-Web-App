@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color: #333;
+    font-weight: bolder;
+    margin-top: 0 !important;
+    margin-right: 5rem;
+}
+
+header .logo span{
+    color: palevioletred;
+}
+
+header> .navbar> a{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+    cursor: pointer;
+}
+
+/* header .navbar a:hover{
+    color: palevioletred;
+
+} */
+
+header .icons a{
+    font-size: 3rem;
+    color: #333;
+    margin-left: 1.5rem;
+    background: #fff !important;
+}
+
+header .icons a:hover{
+    color: palevioletred
+}
+
+.cart{
+    position: relative;
+}
+
+.count{
+    position: absolute;
+    top: -35%;
+    left: 55%;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(210, 26, 115);
+    border-radius: 2rem;
+    text-align: center;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #ffff;
+}
+
+
+header #toggler{
+    display: none;
+}
+
+.bars{
+    font-size: 3rem;
+    color: #333;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-close-btn{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+   color: #333;
+   border-radius: .5rem;
+   padding: .5rem 1.5rem;
+   cursor: pointer;
+   display: none;
+}
+
+.navbar  > a{
+    box-shadow: inset 0 0 0 0 rgb(88, 31, 60);;
+  color: #fff;
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  text-decoration: none;
+  font-size: larger;
+ }
+
+ .navbar > a:hover{
+    text-decoration: underline;
+    box-shadow: inset 200px 0 0 0 rgb(248, 58, 137);
+    text-underline-offset: 7px;
+    padding: 1rem;
+    color:#fff ;
+ }
+
+
+
+@media only screen and (max-width:991px){
+    html{
+        font-size: 60%;
+    }
+
+    header{
+        padding: 3rem;
+    }
+
+    .navbar  > a{
+        box-shadow: inset 0 0 0 0 rgb(88, 31, 60);;
+      color: #fff;
+      margin: 0 -.1rem;
+      padding: 0 .1rem;
+      transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+      text-decoration: none;
+      font-size: 3rem;
+     }
+    
+}
+
+
+@media only screen and (max-width:768px){
+             .bars{
+                display: block;
+            }
+
+            header .navbar{
+                /* position: absolute; */
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 2000;
+                background: #eee;
+                border-top: .1rem solid rgba(0, 0, 0, 0.1);
+
+
+                z-index: 1000;
+                position: fixed;
+               height: 100vh;
+               width: 100%;
+               background-color: #ffe4ee;
+               transition: 1s;
+               transform: translateY(-100vh);
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+            }
+
+            header .responsive_nav{
+                transform: none;
+         }
+         .nav-close-btn{
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 5rem;
+           color: #333;
+           cursor: pointer;
+           display: block;
+        }
+            /*start from hereeeeee*/
+           .navbtn{
+            display: block;
+           }
+             header .navbar a{
+                margin: 1.5rem;
+                padding: 1.5rem;
+                border: .1rem solid rgba(0, 0, 0, .1);
+                background: #ffcaca;
+                color: #b0005e;
+                display: block;
+            }
+}
+
+@media only screen and (max-width:600px){
+    html{
+        font-size: 52.5%;
+        
+    }
+}
