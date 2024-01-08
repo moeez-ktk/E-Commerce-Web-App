@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Item = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -26,13 +26,20 @@ const Item = ({ item }) => {
       </div>
       <div className="item-price">${item.price.toFixed(2)}</div>
       <div className="quantity-container">
-        <button className='counterbtn minus-btn' onClick={handleDecreaseQuantity}>—</button>
+        <button
+          className="counterbtn minus-btn"
+          onClick={handleDecreaseQuantity}
+        >
+          —
+        </button>
         <span className="quantity">{quantity}</span>
-        <button className='counterbtn' onClick={handleIncreaseQuantity}>+</button>
+        <button className="counterbtn" onClick={handleIncreaseQuantity}>
+          +
+        </button>
       </div>
       <div className="total-price">${(item.price * quantity).toFixed(2)}</div>
       <button className="remove-button" onClick={handleRemoveItem}>
-      &#x2715;
+        &#x2715;
       </button>
     </div>
   );
