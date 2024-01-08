@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Admin from "./components/Admin/Admin";
+import Admin from "./pages/Admin/Admin";
 import Cart from "./components/Cart/Cart";
 import Login from "./components/Login/Login";
 import Home from "./pages/homePage/Home";
