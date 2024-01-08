@@ -419,7 +419,7 @@ const Admin = () => {
             ))}
           </div>
         </aside>
-        <div className="container">
+        <div className="admin-container">
           <div className="item1 subcontainer">
             <div className="item1_text">
               <p>Congratulations! 🎉</p>
